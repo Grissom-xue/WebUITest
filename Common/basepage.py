@@ -1,4 +1,5 @@
-
+import os
+from Common import dir_config
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
@@ -11,6 +12,8 @@ class BasePage:
         pass
 
     def save_screenshot(self):
-        filepath =
-        try:
-            self.driver.sava_screenshot(filePath)
+        pass
+        # filename =
+        # filepath = os.path.join(dir_config.screenshot_dir,)
+        # try:
+        #     self.driver.sava_screenshot(filePath)

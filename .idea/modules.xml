@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GodapWebUITest.iml" filepath="$PROJECT_DIR$/.idea/GodapWebUITest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/LemonWeb.iml" filepath="$PROJECT_DIR$/.idea/LemonWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/WebUITest.iml" filepath="$PROJECT_DIR$/.idea/WebUITest.iml" />
     </modules>
   </component>
 </project>

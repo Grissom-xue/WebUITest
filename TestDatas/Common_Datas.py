@@ -3,4 +3,4 @@
 """
 
 # 全局  - 系统访问地址 -登陆链接
-web_login_url = "https://web.godap.com/login"
+web_login_url = "https://www.ctrip.com/"

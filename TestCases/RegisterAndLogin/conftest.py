@@ -1,12 +1,27 @@
 import pytest
 from selenium import webdriver
-"""
-fixture(scope="class")
-"""
+from TestDatas import Common_Datas
+from PageObjects.login_page import LoginPage
+
+
+driver = None
+
+
 @pytest.fixture(scope="class")
 def access_web():
-    #前置条件
+    global driver
+    # 前置条件[打开浏览器-->获取网页地址--》获取page对象]
     driver = webdriver.Chrome()
-    driver.get("https://web.godap.com/login")
+    driver.get(Common_Datas.web_login_url)
+    loginpage = LoginPage(driver)
+    yield(driver, loginpage) # 用来return返回值
+    # 后置条件【关闭浏览器】
+    driver.quit()
+
+
+@pytest.fixture()
+def refresh_page():
+    global driver
     yield
-    #后置条件
+    # 刷新操作
+    driver.refresh()
