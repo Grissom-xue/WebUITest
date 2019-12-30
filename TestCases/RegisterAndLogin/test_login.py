@@ -23,9 +23,6 @@ class TestLogin(unittest.TestCase):
     def setUp(self):
         self.lg = LoginPage(self.driver)
 
-
-        # 后置工作
-
     # 每个用例执行之后执行一次
     def tearDown(self) -> None:
         # case完成之后睡眠两秒钟
@@ -54,6 +51,7 @@ class TestLogin(unittest.TestCase):
 
     # 测试密码为空
     def test_login_noPassword(self):
+
         pass
 
 
