@@ -1,5 +1,5 @@
 # 正常场景 - 正确的用户名密码
-success_data = {"user": "grissom.xue@dingtopne.me", "passwd": "123456"}
+success_data = {"user": "7152274128", "passwd": "YN@UY7mBuRRRAZE"}
 
 # 异常场景 - 用户名不正确
 fail_data = [

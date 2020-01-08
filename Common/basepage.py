@@ -1,6 +1,7 @@
 import os
 import logging
 from datetime import datetime
+import time
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -55,7 +56,7 @@ class BasePage:
             raise
 
     # 点击操作
-    def click_element(self, locator, doc):
+    def click_element(self, locator, doc=""):
         ele = self.get_element(locator, doc)
         try:
             ele.click()
@@ -63,12 +64,14 @@ class BasePage:
             logging.exception("点击失败！")
             self.save_screenshot(doc)
             raise
+    # 滑块验证
+    # def
 
     # 输入文本
     def input_text(self, locator, text, doc=""):
         ele = self.get_element(locator, doc)
         try:
-            ele.input(text)
+            ele.send_keys(text)
         except:
             logging.exception("输入文本失败！")
             self.save_screenshot(doc)
@@ -88,7 +91,7 @@ class BasePage:
     def get_ele_attribute(self, locator, attr, doc=""):
         ele = self.get_element(locator, doc)
         try:
-            return ele.get_attribute(locator, doc)
+            return ele.get_attribute(locator, attr)
         except:
             logging.exception("获取元素属性失败！")
             self.save_screenshot(doc)
@@ -108,7 +111,12 @@ class BasePage:
 
     # 截图操作
     def save_screenshot(self, name):
+        local_time = time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime())
         # 图片名称：页面名称_模块名称_操作名称_秒级时间.png
-        file_path = dir_config.screenshot_dir + name
-        self.driver.save_screenshot(file_path)
-        logging.info("截取网页成功。文件路径为")
+        file_name = "/{0}_{1}.png".format(name, local_time)
+        file_path = dir_config.screenshot_dir + file_name
+        try:
+            self.driver.save_screenshot(file_path)
+            logging.info("截取网页成功。文件路径为{}".format(file_path))
+        except:
+            logging.exception("截图失败")

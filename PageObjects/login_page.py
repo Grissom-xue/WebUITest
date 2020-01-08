@@ -1,21 +1,23 @@
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from PageLocators.login_page_locators import LoginPageLocator
 from Common.basepage import BasePage
 
 
 class LoginPage(BasePage):
 
-    def login(self, username, passwd):
+    def overseas_login(self, username, passwd):
         doc = "登陆页面_登陆功能"
-        # 等待元素出现
-        self.wait_ele_visible(LoginPageLocator.user_text, doc)
+        # 等待海外手机号的用户名输入框出现
+        self.wait_ele_visible(LoginPageLocator.overseas_user_text, doc=doc)
+        # 选择美国国家码
+        self.click_element(LoginPageLocator.overseas_country_code_choose, doc)
+        self.wait_ele_visible(LoginPageLocator.overseas_country_code_US, doc=doc)
+        self.click_element(LoginPageLocator.overseas_country_code_US, doc)
         # 输入用户名
-        self.input_text(LoginPageLocator.user_text, username, doc)
+        self.input_text(LoginPageLocator.overseas_user_text, username, doc)
         # 输入密码
-        self.input_text(LoginPageLocator.passwd_text, passwd, doc)
+        self.input_text(LoginPageLocator.overseas_passwd_text, passwd, doc)
         # 点击登录
-        self.click_element(LoginPageLocator.login_btn, doc)
+        self.click_element(LoginPageLocator.overseas_login_btn, doc)
 
     def register(self, username, passwd):
         # 点击免费注册按钮
