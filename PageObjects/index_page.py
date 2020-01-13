@@ -1,7 +1,3 @@
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from Common.basepage import BasePage
 from PageLocators.index_page_locators import IndexPageLocator
 from PageLocators.login_page_locators import LoginPageLocator
@@ -37,5 +33,3 @@ class IndexPage(BasePage):
             return True
         except:
             return False
-
-# 96
