@@ -30,8 +30,3 @@ class TestLogin(object):
     # 测试密码为空
     def test_login_no_password(self):
         pass
-
-
-
-if __name__ == '__main__':
-    pass

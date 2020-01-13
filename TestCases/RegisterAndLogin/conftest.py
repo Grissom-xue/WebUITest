@@ -16,9 +16,9 @@ def access_web():
     driver = webdriver.Chrome()
     driver.maximize_window()
     driver.get(Common_Datas.web_login_url)
-    indexpage = IndexPage(driver)
-    loginpage = LoginPage(driver)
-    yield (driver, loginpage, indexpage)  # 用来return返回值
+    index_page = IndexPage(driver)
+    login_page = LoginPage(driver)
+    yield (driver, login_page, index_page)  # 用来return返回值
     # 后置条件【关闭浏览器】
     driver.quit()
 
